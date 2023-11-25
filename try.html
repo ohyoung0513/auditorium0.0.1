@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡單的漫畫瀏覽器</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        padding: 20px;
+    }
+
+    #comic-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .comic-page {
+        display: none;
+        width: 100%;
+    }
+
+    #controls {
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <div id="comic-container">
+        <!-- 分支 A -->
+        <div class="comic-page" id="branchA">
+            <img src="path/to/branchA.jpg" alt="Branch A">
+        </div>
+
+        <!-- 分支 B -->
+        <div class="comic-page" id="branchB">
+            <img src="path/to/branchB.jpg" alt="Branch B">
+        </div>
+
+        <!-- 分支 C -->
+        <div class="comic-page" id="branchC">
+            <img src="path/to/branchC.jpg" alt="Branch C">
+        </div>
+    </div>
+
+    <!-- 控制按鈕 -->
+    <div id="controls">
+        <button class="btn btn-primary" onclick="showBranch('branchA')">顯示分支 A</button>
+        <button class="btn btn-primary" onclick="showBranch('branchB')">顯示分支 B</button>
+        <button class="btn btn-primary" onclick="showBranch('branchC')">顯示分支 C</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showBranch(branchId) {
+            // 隱藏所有分支頁面
+            document.querySelectorAll('.comic-page').forEach(page => {
+                page.style.display = 'none';
+            });
+    
+            // 顯示所選的分支頁面
+            document.getElementById(branchId).style.display = 'block';
+    
+            // 隱藏所有按鈕
+            document.querySelectorAll('.btn').forEach(button => {
+                button.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
